@@ -2,7 +2,7 @@
 
 import logging
 from src.models import SurveyData, Session
-from src.dataextraction import fetch_data_from_kobotoolbox
+from src.fetch_data import fetch_data_from_kobotoolbox
 
 
 def insert_data_to_db(data):
@@ -50,12 +50,4 @@ def insert_data_to_db(data):
         session.close()
 
 
-# Example usage
-if __name__ == "__main__":
-
-    api_url = (
-        "https://kf.kobotoolbox.org/api/v2/assets/aW9w8jHjn4Cj8SSQ5VcojK/data.json"
-    )
-    headers = {"Authorization": "Token your_token_here", "Cookie": "django_language=en"}
-    data = fetch_data_from_kobotoolbox(api_url, headers)
-    insert_data_to_db(data)
+# dependant on fetch_data.py file.

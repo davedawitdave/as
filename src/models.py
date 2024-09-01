@@ -1,14 +1,24 @@
 # src/models.py
 
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, Float, Date
+from sqlalchemy import (
+    create_engine,
+    Column,
+    Integer,
+    String,
+    DateTime,
+    Boolean,
+    Float,
+    Date,
+)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+
 class SurveyData(Base):
-    __tablename__ = 'survey_data'
-    
+    __tablename__ = "survey_data"
+
     id = Column(Integer, primary_key=True)
     uuid = Column(String, unique=True)
     start_time = Column(DateTime)
@@ -39,8 +49,9 @@ class SurveyData(Base):
     submission_time = Column(DateTime)
     geolocation = Column(String)  # Can be changed to Geography type if using PostGIS
 
+
 # Database setup
-engine = create_engine('postgresql://username:password@localhost/dbname')
+engine = create_engine("sqlite:///database/koo.db")
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)

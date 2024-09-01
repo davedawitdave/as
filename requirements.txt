@@ -1,0 +1,6 @@
+# requirements.txt
+
+Flask==2.0.1
+SQLAlchemy==1.4.22
+requests==2.25.1
+python-dotenv==0.18.0
